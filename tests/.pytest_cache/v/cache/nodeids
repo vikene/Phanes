@@ -1,0 +1,4 @@
+[
+  "randomUtils_test.py::test_random",
+  "randomUtils_test.py::test_getRandomMatrix"
+]
