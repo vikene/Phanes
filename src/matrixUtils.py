@@ -1,41 +1,53 @@
 import numpy as np 
+from random import randint
 
-def hCat(matrixA, matrixB):
-    if(matrixA.shape(0) != matrixB.shape(0)):
+
+def random_bound(limit):
+    return randint(0, limit)
+
+def h_cat(matrix_a, matrix_b):
+    if(matrix_a.shape[0] != matrix_b.shape[0]):
         raise NameError('Matrixs Rows are not same')
-    row = matrixA.shape(0)
-    colMatrixA= matrixA.shape(1)
-    colMatrixB = matrixB.shape(1)
+    row = matrix_a.shape[0]
+    col_matrix_a= matrix_a.shape[1]
+    col_matrix_b = matrix_b.shape[1]
 
-    resultMatrix = np.zeros((row, colMatrixA + colMatrixB))
+    result_matrix = np.zeros((row, col_matrix_a + col_matrix_b))
 
     for i in range(row):
-        for j in range(colMatrixA):
-            resultMatrix[i,j] = matrixA[i,j]
+        for j in range(col_matrix_a):
+            result_matrix[i,j] = matrix_a[i,j]
     
     for i in range(row):
-        for j in range(colMatrixB):
-            resultMatrix[i, colMatrixA+j] = matrixB[i,j]
+        for j in range(col_matrix_b):
+            result_matrix[i, col_matrix_a+j] = matrix_b[i,j]
     
-    return resultMatrix
+    return result_matrix
 
 
-def vCat(matrixA, matrixB):
+def v_cat(matrix_a, matrix_b):
     # Columns has to be equal
-    if(matrixA.shape(1) == matrixB.shape(1)):
+    if(matrix_a.shape[1] != matrix_b.shape[1]):
         raise NameError("Matrix Columns has to be same")
-    rowA = matrixA.shape(0)
-    rowB = matrixB.shape(0)
-    col = matrixA.shape(1)
+    row_a = matrix_a.shape[0]
+    row_b = matrix_b.shape[0]
+    col = matrix_a.shape[1]
 
-    resultMatrix = np.zeros((rowA + rowB, col), dtype = np.uint64)
+    result_matrix = np.zeros((row_a + row_b, col), dtype = np.float64)
 
-    for i in range(rowA):
+    for i in range(row_a):
         for j in range(col):
-            resultMatrix[i,j] = matrixA[i,j]
+            result_matrix[i,j] = matrix_a[i,j]
 
-    for i in range(rowB):
+    for i in range(row_b):
         for j in range(col):
-            resultMatrix[rowA+i,j]  = matrixB[i,j]
+            result_matrix[row_a+i,j]  = matrix_b[i,j]
     
-    return resultMatrix
+    return result_matrix
+
+def get_random_matrix(row, col, bound):
+    random_matrix = np.zeros((row,col),dtype=np.float64)
+    for i in range(row):
+        for j in range(col):
+            random_matrix[i,j] = random_bound(bound)
+    return random_matrix
