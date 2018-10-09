@@ -1,4 +1,4 @@
 import sys
 
 def pathStub():
-    sys.path.insert(0,'../src/')
+    sys.path.insert(0,'../phanes/')

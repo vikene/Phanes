@@ -1,4 +1,4 @@
-from core import *
+from .core import *
 import numpy as np 
 
 def copy_rows(input_matrix_rows, num_rows):

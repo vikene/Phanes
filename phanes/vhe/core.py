@@ -1,7 +1,7 @@
 import numpy as np
-from matrixUtils import h_cat
-from binaryBits import get_binary_bits
-from matrixUtils import get_random_matrix, v_cat
+from .matrixUtils import h_cat
+from .binaryBits import get_binary_bits
+from .matrixUtils import get_random_matrix, v_cat
 l = 100
 w = 1 << 40
 #returns nearest Integer 
