@@ -1,3 +1,3 @@
-numpy 
-bitstring
-pytest
+numpy>=1.14.3
+bitstring>=3.1.5
+pytest>=3.0.4
